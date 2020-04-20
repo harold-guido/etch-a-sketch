@@ -37,14 +37,6 @@
   background-color: #b0b0b0;
 }
 
-#resize {
-  grid-area: btn1;
-}
-
-#reset {
-  grid-area: btn2;
-}
-
 .container {
   display: grid;
   align-items: center;
@@ -63,6 +55,16 @@
   grid-template-areas: "btn1 btn2";
 }
 
+/* DONT TOUCH ABOVE CODE */
+
+#resize {
+  grid-area: btn1;
+}
+
+#reset {
+  grid-area: btn2;
+}
+
 #grid-container {
   background-color: lightblue;
   height: 90vh;
@@ -73,9 +75,6 @@
   display: grid;
   align-items: center;
   justify-content: center;
-
-  grid-template-rows: repeat(4, 25%);
-  grid-template-columns: repeat(4, 25%);
 }
 
 .grid-div {
