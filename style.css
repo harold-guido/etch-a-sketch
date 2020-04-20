@@ -1,0 +1,41 @@
+#header {
+  height: 10vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#grid-container {
+  background-color: lightblue;
+  height: 90vh;
+  width: 90vh;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  grid-template-rows: repeat(4, 25%);
+  grid-template-columns: repeat(4, 25%);
+}
+
+.grid-div {
+  height: 100%;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.grid-div:hover {
+  background-color: lightcoral;
+}
+
+.active-grid-div {
+  background-color: lightcoral;
+}
