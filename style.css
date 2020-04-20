@@ -1,10 +1,48 @@
 #header {
-  height: 10vh;
-  width: 100vw;
+  height: auto;
+  width: auto;
 
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
+}
+
+#main {
+  height: auto;
+  width: auto;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background-color: #6b6b6b;
+
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin: 5px;
+
+  border-radius: 5px;
+
+  text-align: center;
+  color: white;
+  font-family: arial;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background-color: #b0b0b0;
+}
+
+#resize {
+  grid-area: btn1;
+}
+
+#reset {
+  grid-area: btn2;
 }
 
 .container {
@@ -13,10 +51,24 @@
   justify-content: center;
 }
 
+#buttons-container {
+  height: 10vh;
+  width: 100vh;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "btn1 btn2";
+}
+
 #grid-container {
   background-color: lightblue;
   height: 90vh;
   width: 90vh;
+
+  border: 1px solid black;
 
   display: grid;
   align-items: center;
@@ -29,13 +81,15 @@
 .grid-div {
   height: 100%;
   width: 100%;
-  background-color: aquamarine;
+  background-color: white;
+
+  transition: all 0.2s ease-out;
 }
 
 .grid-div:hover {
-  background-color: lightcoral;
+  background-color: black;
 }
 
 .active-grid-div {
-  background-color: lightcoral;
+  background-color: black;
 }
