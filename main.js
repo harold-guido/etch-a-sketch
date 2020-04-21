@@ -1,33 +1,52 @@
-function toggleActive(element) {
-  element.target.classList.toggle("active-grid-div");
+function resize(num) {
+  const gridContainer = document.querySelector("#grid-container");
+  var oldDivs = document.querySelectorAll(".grid-div");
+  for (var i = 0; i < oldDivs.length; i++) {
+    gridContainer.removeChild(oldDivs[i]);
+  }
+
+  var gridDivs = Array(num * num)
+    .join(0)
+    .split(0)
+    .map(() => document.createElement("div"));
+
+  gridContainer.style["grid-template-columns"] = `repeat(${num}, 1fr)`;
+  gridContainer.style["grid-template-rows"] = `repeat(${num}, 1fr)`;
+
+  gridContainer.addEventListener("mouseleave", () => {
+    drawing = false;
+  });
+
+  for (var i = 0; i < gridDivs.length; i++) {
+    gridDivs[i].addEventListener("mousedown", function (e) {
+      drawing = true;
+      e.target.classList.add("active-grid-div");
+    });
+    document.addEventListener("mouseup", function (e) {
+      drawing = false;
+      e.target.classList.add("active-grid-div");
+    });
+    gridDivs[i].addEventListener("mouseover", function (e) {
+      if (drawing == true) {
+        e.target.classList.add("active-grid-div");
+      }
+    });
+    gridDivs[i].setAttribute("class", "grid-div");
+    gridContainer.appendChild(gridDivs[i]);
+  }
+}
+function reset() {
+  var gridDivs = document.querySelectorAll(".grid-div");
+  for (i = 0; i < gridDivs.length; i++) {
+    gridDivs[i].classList.remove("active-grid-div");
+  }
 }
 
-// CREATING GRID
+var drawing = false;
 
-// Default Grid
+const resizeBtn = document.querySelector("#resize"),
+  resetBtn = document.querySelector("#reset");
 
-const gridContainer = document.querySelector("#grid-container");
-const gridDivs = Array(16 * 16)
-  .join(0)
-  .split(0)
-  .map(() => document.createElement("div"));
-
-gridContainer.style["grid-template-columns"] = "repeat(16, 1fr)";
-gridContainer.style["grid-template-rows"] = "repeat(16, 1fr)";
-
-for (var i = 0; i < gridDivs.length; i++) {
-  gridDivs[i].addEventListener("click", toggleActive);
-
-  gridDivs[i].setAttribute("class", "grid-div");
-
-  gridContainer.appendChild(gridDivs[i]);
-}
-
-//FUNCTIONALITY OF GRID
-
-// Resize Button
-
-const resizeBtn = document.querySelector("#resize");
 resizeBtn.addEventListener("click", () => {
   var validInput = false;
 
@@ -47,18 +66,6 @@ resizeBtn.addEventListener("click", () => {
     }
   }
 });
-
-// Reset Button
-
-const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", reset);
 
-// Resize Function
-
-function resize(num) {
-  alert("valid input " + num);
-}
-
-// Reset Function
-
-function reset() {}
+resize(16);
