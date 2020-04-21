@@ -1,16 +1,13 @@
-#header {
-  height: auto;
-  width: auto;
-
+#body {
   display: grid;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: 1fr 95vh 1fr;
+  grid-template-areas: "instructions canvas menu";
 }
 
 #main {
   height: auto;
   width: auto;
-
+  grid-area: canvas;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -19,13 +16,16 @@
 .button {
   background-color: #6b6b6b;
 
-  padding-top: 5%;
-  padding-bottom: 5%;
+  width: 100%;
   margin: 5px;
+
+  padding: 5px;
 
   border-radius: 5px;
 
-  text-align: center;
+  /* flex: ; */
+
+  text-align: start;
   color: white;
   font-family: arial;
   font-weight: 100;
@@ -37,50 +37,38 @@
   background-color: #b0b0b0;
 }
 
-.container {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
 #buttons-container {
-  height: 10vh;
-  width: 150vh;
+  height: 100%;
+  width: 50%;
 
-  display: grid;
-  align-items: center;
+  grid-area: menu;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "btn1 btn2 btn3 btn4 btn5";
 }
 
-/* DONT TOUCH ABOVE CODE */
+#instructions {
+  font-size: large;
+  font-weight: 100;
+  font-family: arial;
+  grid-area: instructions;
 
-#resize {
-  grid-area: btn1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#normal {
-  grid-area: btn2;
-}
-
-#random {
-  grid-area: btn3;
-}
-
-#shades {
-  grid-area: btn4;
-}
-
-#reset {
-  grid-area: btn5;
+.paragraph {
+  width: 80%;
+  line-height: 30px;
 }
 
 #grid-container {
   background-color: lightblue;
-  height: 90vh;
-  width: 90vh;
+  height: 95vh;
+  width: 95vh;
 
   border: 1px solid black;
 

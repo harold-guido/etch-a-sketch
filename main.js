@@ -49,6 +49,9 @@ function resize(num) {
           currentRbg > 1 ? currentRbg - 25 : currentRbg
         })`;
         console.log(e.target.style.backgroundColor);
+      } else if (eraser == true) {
+        drawing = true;
+        e.target.style.backgroundColor = `rgb(255, 255, 255)`;
       }
     });
 
@@ -81,6 +84,8 @@ function resize(num) {
         },${currentRbg > 1 ? currentRbg - 25 : currentRbg},${
           currentRbg > 1 ? currentRbg - 25 : currentRbg
         })`;
+      } else if (drawing == true && eraser == true) {
+        e.target.style.backgroundColor = `rgb(255, 255, 255)`;
       }
     });
     gridDivs[i].setAttribute("class", "grid-div");
@@ -97,13 +102,14 @@ function reset() {
 var drawing = false,
   normal = true,
   random = false,
-  shades = false;
+  shades = false,
+  eraser = false;
 
 const resizeBtn = document.querySelector("#resize");
 const normalBtn = document.querySelector("#normal");
 const randomBtn = document.querySelector("#random");
 const shadesBtn = document.querySelector("#shades");
-const resetBtn = document.querySelector("#reset");
+const eraserBtn = document.querySelector("#eraser");
 
 resizeBtn.addEventListener("click", () => {
   var validInput = false;
@@ -114,9 +120,11 @@ resizeBtn.addEventListener("click", () => {
         "Please enter an integer value between 10 and 100 \nfor the number of pixels you want per side of canvas"
       )
     );
-    if (typeof resizeInt != "number") {
-      validInput = false;
+    if (resizeInt == 0) {
+      validInput = true;
     } else if (resizeInt < 10 || resizeInt > 100) {
+      validInput = false;
+    } else if (typeof resizeInt != "number") {
       validInput = false;
     } else {
       validInput = true;
@@ -128,17 +136,25 @@ normalBtn.addEventListener("click", () => {
   normal = true;
   random = false;
   shades = false;
+  eraser = false;
 });
 randomBtn.addEventListener("click", () => {
   random = true;
   normal = false;
   shades = false;
+  eraser = false;
 });
 shadesBtn.addEventListener("click", () => {
   shades = true;
   normal = false;
   random = false;
+  eraser = false;
 });
-resetBtn.addEventListener("click", reset);
+eraserBtn.addEventListener("click", function (e) {
+  shades = false;
+  normal = false;
+  random = false;
+  eraser = true;
+});
 
 resize(16);

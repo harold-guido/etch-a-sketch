@@ -6,16 +6,35 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <header id="header">
-      <div class="container" id="buttons-container">
-        <div class="button" id="resize">Change Density</div>
-        <div class="button" id="reset">Reset</div>
-        <div class="button" id="normal">Normal</div>
-        <div class="button" id="random">Random Colours</div>
-        <div class="button" id="shades">Shades of Black</div>
-      </div>
-    </header>
+  <body id="body">
+    <div class="container" id="instructions">
+      <h1>INSTRUCTIONS</h1>
+      <p class="paragraph">
+        This is a canvas you can draw on a canvas using different pens:
+        <br />- the <strong>"Normal"</strong> pen lets you draw in balck ink
+        <br />- the <strong>"Rainbow"</strong> pen lets you draw in rainbow ink
+        (which randomly changes colours as you draw) <br />- the
+        <strong>"Shades of Black"</strong>
+        pen adds a darker shade of black to a pixel of the grid each time it is
+        drawn over the "Normal" pen lets you draw in balck ink
+        <br />
+        - the <strong>"Eraser"</strong>
+        pen lets you draw in white ink
+      </p>
+      <br />
+      <p class="paragraph">
+        Additionally:
+        <br />- the <strong>"Resize"</strong> button lets you determine the new
+        number of pixels per side of the canvas
+      </p>
+    </div>
+    <div class="container" id="buttons-container">
+      <div class="button" id="resize">Resize</div>
+      <div class="button" id="normal">Normal</div>
+      <div class="button" id="random">Rainbow</div>
+      <div class="button" id="shades">Shades of Black</div>
+      <div class="button" id="eraser">Eraser</div>
+    </div>
     <main id="main">
       <div class="container" id="grid-container"></div>
     </main>
