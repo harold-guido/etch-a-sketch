@@ -45,14 +45,14 @@
 
 #buttons-container {
   height: 10vh;
-  width: 100vh;
+  width: 150vh;
 
   display: grid;
   align-items: center;
   justify-content: center;
 
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "btn1 btn2";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "btn1 btn2 btn3 btn4 btn5";
 }
 
 /* DONT TOUCH ABOVE CODE */
@@ -61,8 +61,20 @@
   grid-area: btn1;
 }
 
-#reset {
+#normal {
   grid-area: btn2;
+}
+
+#random {
+  grid-area: btn3;
+}
+
+#shades {
+  grid-area: btn4;
+}
+
+#reset {
+  grid-area: btn5;
 }
 
 #grid-container {
@@ -81,12 +93,4 @@
   height: 100%;
   width: 100%;
   background-color: white;
-}
-
-.grid-div:hover {
-  background-color: black;
-}
-
-.active-grid-div {
-  background-color: black;
 }
